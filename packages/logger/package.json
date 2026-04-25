@@ -1,0 +1,32 @@
+{
+    "name": "@repo/logger",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./winston": {
+            "import": "./dist/winston.js",
+            "types": "./dist/winston.d.ts"
+        }
+    },
+    "scripts": {
+        "build": "bun build ./src/index.ts --outdir=dist --format=esm --target=node && bun build:types",
+        "build:types": "tsc --declaration --declarationMap",
+        "lint": "oxlint .",
+        "format": "oxfmt --write",
+        "check-types": "tsc --noEmit",
+        "clean": "rm -rf dist"
+    },
+    "dependencies": {
+        "winston": "^3.17.0"
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "*"
+    }
+}
