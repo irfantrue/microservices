@@ -9,12 +9,12 @@ This is a **Bun-powered Turborepo monorepo** for microservices backend services.
 ## Architecture
 
 ```
-apps/               # Microservices (executable applications)
-  └── gateway/      # API Gateway (Hono framework)
-packages/           # Shared libraries
-  ├── env/          # Zod-based environment validation
-  ├── logger/       # Winston-based logging
-  └── typescript-config/ # TypeScript base configs
+apps/                          # Microservices (executable applications)
+  └── notification-service/    # Notification service (Hono framework)
+packages/                      # Shared libraries
+  ├── env/                     # Zod-based environment validation
+  ├── logger/                  # Winston-based logging
+  └── typescript-config/       # TypeScript base configs
 ```
 
 ## Common Commands
@@ -27,10 +27,10 @@ bun install
 bun run build
 
 # Build single app (auto-builds dependencies first)
-bun run build --filter=gateway
+bun run build --filter=notification-service
 
 # Develop single app with hot reload
-bun run dev --filter=gateway
+bun run dev --filter=notification-service
 
 # Lint all
 bun run lint
@@ -62,7 +62,7 @@ Each app in `apps/` requires:
 - `tsconfig.json` - Extends `@repo/typescript-config/base.json`
 - `.env` - Environment variables
 
-Gateway app uses Hono framework with CORS and secureHeaders middleware. Exports `{ port, fetch }` for Bun's serve().
+Notification service uses Hono framework with CORS and secureHeaders middleware. Exports `{ port, fetch }` for Bun's serve().
 
 ### Packages (Shared Libraries)
 
@@ -83,7 +83,7 @@ import { baseEnvSchema } from '@repo/env'
 import { z } from 'zod'
 
 const envSchema = baseEnvSchema.extend({
-  SERVICE_NAME: z.literal('gateway').default('gateway'),
+  SERVICE_NAME: z.literal('notification-service').default('notification-service'),
   JWT_SECRET: z.string().min(32),
 })
 
