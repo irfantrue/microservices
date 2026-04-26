@@ -4,10 +4,14 @@
         "baseUrl": ".",
         "outDir": "dist",
         "strictNullChecks": true,
-        "types": ["@types/bun"],
+        "types": ["@types/bun", "@glint/ember-tsc/types"],
         "paths": {
             "@/*": ["src/*"],
-            "@config/*": ["src/config/*"]
+            "@config/*": ["src/config/*"],
+            "@shared/*": ["src/shared/*"],
+            "@domain/*": ["src/domain/*"],
+            "@use-cases/*": ["src/use-cases/*"],
+            "@infrastructure": ["src/infrastructure/*"]
         },
         "ignoreDeprecations": "6.0"
     },
