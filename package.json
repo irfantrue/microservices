@@ -16,6 +16,7 @@
         "clean:deep": "rm -rf node_modules .turbo $(find apps packages -name 'node_modules' -type d 2>/dev/null) $(find apps packages -name '.turbo' -type d 2>/dev/null) $(find apps packages -name '.next' -type d 2>/dev/null) $(find apps packages -name 'dist' -type d 2>/dev/null)"
     },
     "dependencies": {
+        "hono": "^4.12.10",
         "zod": "^4.3.6"
     },
     "devDependencies": {

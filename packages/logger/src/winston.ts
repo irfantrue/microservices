@@ -1,5 +1,7 @@
 import * as winston from 'winston'
 
+export type Logger = winston.Logger
+
 export type LogLevel = 'error' | 'warn' | 'info' | 'http' | 'debug'
 export type LogFormat = 'json' | 'pretty'
 
@@ -37,5 +39,3 @@ export function createLogger(config: LoggerConfig = {}): winston.Logger {
 
 // Default logger instance - consumer can reconfigure if needed
 export const logger = createLogger()
-
-export default logger
