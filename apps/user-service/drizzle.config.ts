@@ -1,6 +1,3 @@
-import 'dotenv/config'
-
-import { env } from '@config/env'
 import { defineConfig } from 'drizzle-kit'
 
 export default defineConfig({
@@ -8,7 +5,10 @@ export default defineConfig({
     out: './db/migrations',
     dialect: 'postgresql',
     dbCredentials: {
-        url: env.POSTGRES_URL,
+        host: process.env.POSTGRES_HOST!,
+        user: process.env.POSTGRES_USER!,
+        password: process.env.POSTGRES_PASS!,
+        database: process.env.POSTGRES_DB!,
     },
     migrations: {
         table: 'journal',
@@ -17,5 +17,4 @@ export default defineConfig({
     schemaFilter: 'auth',
     verbose: true,
     strict: true,
-    casing: 'snake_case',
 })

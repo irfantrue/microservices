@@ -6,7 +6,6 @@
         "strictPropertyInitialization": false,
         "types": ["@types/node", "@types/bun"],
         "paths": {
-            "@/*": ["src/*"],
             "@config/*": ["config/*"],
             "@db/*": ["db/*"],
             "@shared/*": ["src/shared/*"],
@@ -16,6 +15,6 @@
         },
         "ignoreDeprecations": "6.0"
     },
-    "include": ["src", "config", "db", "scripts"],
-    "exclude": ["node_modules", "dist", ".turbo"]
+    "include": ["src", "config", "db/schema", "drizzle.config.ts"],
+    "exclude": ["node_modules", "dist", ".turbo", "db/seeds", "db/migrations"]
 }

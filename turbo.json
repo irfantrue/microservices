@@ -7,12 +7,20 @@
             "inputs": ["$TURBO_DEFAULT$", ".env*"],
             "outputs": [".next/**", "!.next/cache/**", "dist/**"]
         },
-        "db:check": {},
-        "db:push": {},
         "dev": {
             "dependsOn": ["^build"],
+            "inputs": ["$TURBO_DEFAULTS", ".env.development"],
             "cache": false,
             "persistent": true
+        },
+        "db:check": {
+            "cache": false
+        },
+        "db:generate": {
+            "cache": false
+        },
+        "db:migrate": {
+            "cache": false
         },
         "lint": {
             "dependsOn": ["^lint"]
@@ -29,3 +37,4 @@
         }
     }
 }
+

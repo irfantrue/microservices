@@ -1,5 +1,3 @@
-// import 'dotenv/config'
-
 import { env } from '@config/env'
 import { type NewPermission, permissions } from '@db/schema/permissions'
 import { type NewRolePermission, rolePermissions } from '@db/schema/role_permissions'

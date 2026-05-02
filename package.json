@@ -9,7 +9,8 @@
     "scripts": {
         "build": "turbo run build",
         "db:check": "turbo run db:check",
-        "db:push": "turbo run db:push",
+        "db:generate": "turbo run db:generate",
+        "db:migrate": "turbo run db:migrate",
         "dev": "turbo run dev",
         "lint": "turbo run lint",
         "format": "turbo run format",
