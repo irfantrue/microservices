@@ -13,8 +13,9 @@
             "@use-case/*": ["src/use-case/*"],
             "@infrastructure/*": ["src/infrastructure/*"]
         },
+        "noEmit": true,
         "ignoreDeprecations": "6.0"
     },
-    "include": ["src", "config", "db/schema", "drizzle.config.ts"],
+    "include": ["src", "config", "db/schema", "__test__", "drizzle.config.ts", "vitest.config.ts"],
     "exclude": ["node_modules", "dist", ".turbo", "db/seeds", "db/migrations"]
 }

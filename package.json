@@ -16,7 +16,8 @@
         "format": "turbo run format",
         "check-types": "turbo run check-types",
         "clean": "turbo run clean && rm -rf .turbo",
-        "clean:deep": "rm -rf node_modules .turbo $(find apps packages -name 'node_modules' -type d 2>/dev/null) $(find apps packages -name '.turbo' -type d 2>/dev/null) $(find apps packages -name '.next' -type d 2>/dev/null) $(find apps packages -name 'dist' -type d 2>/dev/null)"
+        "clean:deep": "rm -rf node_modules .turbo $(find apps packages -name 'node_modules' -type d 2>/dev/null) $(find apps packages -name '.turbo' -type d 2>/dev/null) $(find apps packages -name '.next' -type d 2>/dev/null) $(find apps packages -name 'dist' -type d 2>/dev/null)",
+        "test": "turbo run test"
     },
     "dependencies": {
         "zod": "^4.3.6"
@@ -27,7 +28,8 @@
         "oxfmt": "^0.47.0",
         "oxlint": "^1.61.0",
         "turbo": "^2.9.6",
-        "typescript": "6.0.3"
+        "typescript": "6.0.3",
+        "vitest": "^4.1.5"
     },
     "engines": {
         "bun": ">=1.0.0"

@@ -5,19 +5,22 @@
     "scripts": {
         "dev": "bun --env-file=.env.development --bun --hot src/index.ts",
         "build": "bun run clean && bun run build:compile",
-        "build:compile": "bun build src/index.ts --outfile user-service --bytecode --format=esm --compile --target=bun --minify",
+        "build:compile": "bun build src/index.ts --outfile user-service --bytecode --format=esm --compile --target=bun --minify --tsconfig tsconfig.build.json",
         "db:check": "bun --env-file=.env.development --bun drizzle-kit check",
         "db:generate": "bun --env-file=.env.development --bun drizzle-kit generate",
         "db:migrate": "bun --env-file=.env.development --bun drizzle-kit migrate",
         "lint": "oxlint .",
         "format": "oxfmt --write",
         "check-types": "tsc --noEmit",
-        "clean": "rm -rf dist"
+        "check-types:test": "tsc --noEmit",
+        "clean": "rm -rf dist",
+        "test": "bun --bun vitest"
     },
     "dependencies": {
         "@repo/config": "*",
         "@repo/logger": "*",
         "drizzle-orm": "^1.0.0-rc.1",
+        "effect": "^3.21.2",
         "hono": "^4.12.16",
         "ioredis": "^5.10.1",
         "jose": "^6.2.3"

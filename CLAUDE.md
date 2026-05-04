@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **pnpm-powered Turborepo monorepo** for microservices backend services. Uses Turborepo for build orchestration, pnpm for package management, SWC for TypeScript transpilation, oxlint/oxfmt for linting and formatting, and TypeScript with strict mode.
+This is a **bun-powered Turborepo monorepo** for microservices backend services. Uses Turborepo for build orchestration, bun for package management, SWC for TypeScript transpilation, oxlint/oxfmt for linting and formatting, and TypeScript with strict mode.
 
 ## Architecture
 
@@ -22,34 +22,34 @@ packages/                      # Shared libraries
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Build all apps and packages
-pnpm run build
+bun run build
 
 # Build single app (auto-builds dependencies first)
-pnpm run build --filter=notification-service
+bun run build --filter=notification-service
 
 # Develop single app with hot reload
-pnpm run dev --filter=notification-service
+bun run dev --filter=notification-service
 
 # Lint all
-pnpm run lint
+bun run lint
 
 # Format all
-pnpm run format
+bun run format
 
 # Type check all (auto-builds packages first)
-pnpm run check-types
+bun run check-types
 
 # Clean build outputs
-pnpm run clean
+bun run clean
 
 # Deep clean (node_modules, .turbo, dist)
-pnpm run clean:deep
+bun run clean:deep
 
 # Filter commands work for packages too
-pnpm run check-types --filter=@repo/env
+bun run check-types --filter=@repo/env
 ```
 
 ## Package Structure
@@ -116,14 +116,14 @@ const custom = createLogger({
 
 ## Dependency Management
 
-- **Shared dependencies** (zod) are in root `package.json` under `dependencies` - pnpm hoists them to root node_modules
+- **Shared dependencies** (zod) are in root `package.json` under `dependencies` - bun hoists them to root node_modules
 - **App-specific dependencies** are in each app's package.json
 - **devDependencies** for tooling (typescript, oxlint, turbo) are in root
 
 ## Configuration Notes
 
 - **TypeScript 6.x** with strict mode and `moduleResolution: Bundler`
-- **pnpm** as package manager - use `pnpm run` for scripts, `pnpm exec` for one-off commands
+- **bun** as package manager - use `bun run` for scripts, `bun exec` for one-off commands
 - **Turbo** runs tasks in topological order based on dependencies
 - **dev task**: `persistent: true` keeps server running; `dependsOn: ["^build"]` auto-builds dependencies first
 - **check-types task**: Automatically builds packages before type-checking apps

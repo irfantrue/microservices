@@ -1,8 +1,5 @@
 import { env } from '@config/env'
-import { type NewPermission, permissions } from '@db/schema/permissions'
-import { type NewRolePermission, rolePermissions } from '@db/schema/role_permissions'
-import { type NewRole, roles } from '@db/schema/roles'
-import { type NewUser, users } from '@db/schema/users'
+import { users } from '@db/schema/users'
 import { db } from '@infrastructure/db'
 import { logger } from '@shared/logger'
 
